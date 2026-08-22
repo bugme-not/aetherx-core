@@ -97,13 +97,14 @@ AetherX-Core is a modern Docker-based core platform designed for high-performanc
 - Professional deployment workflow.
 
 💎 AetherX-Core Advantages
-✅ Cloudflare domain integration
-✅ Multi-protocol support
-✅ IPv4 & IPv6 compatibility
-✅ Upstream routing support
-✅ Docker-ready deployment
-✅ Nginx-powered
-✅ Supervisord service control
-✅ Production-focused architecture
+
+🔹 Cloudflare domain integration
+🔹 Multi-protocol support
+🔹 IPv4 & IPv6 compatibility
+🔹 Upstream routing support
+🔹 Docker-ready deployment
+🔹 Nginx-powered
+🔹 Supervisord service control
+🔹 Production-focused architecture
 
 AetherX-Core — Engineered for modern cloud-native networking. 🐳☁️⚡
