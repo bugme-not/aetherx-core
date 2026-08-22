@@ -2,7 +2,8 @@
 
 🚀 Professional Containerized Network Core
 
-AetherX-Core is a modern Docker-based core platform designed for high-performance networking, flexible protocol support, and simplified deployment management. Built with a professional container architecture using Docker, Nginx, and Supervisord for reliability, automation, and service control.
+AetherX-Core is a Docker-based core platform built for reliable deployment, flexible protocol integration, and efficient service management. Using Docker, Nginx, and Supervisord, it provides a modular environment with stability, automation, and simplified operations.
+With Google Cloud Platform (GCP) deployment support, AetherX-Core enables scalable cloud deployment, consistent container execution, and streamlined service management across environments.
 
 ☁️ Cloudflare Integration
 
