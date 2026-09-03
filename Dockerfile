@@ -17,17 +17,21 @@ RUN curl -L --retry 3 "https://github.com/XTLS/Xray-core/releases/latest/downloa
 
 FROM openresty/openresty:alpine-fat
 
+ENV TZ=Asia/Shanghai
+
 RUN apk add --no-cache \
     ca-certificates \
     bash \
     curl \
     tzdata \
-    wget
+    wget \
+    supervisor
 
 COPY --from=xray-bin /usr/local/bin/xray /usr/local/bin/xray
 
 COPY config.json /etc/xray.json
 COPY nginx.conf /usr/local/openresty/nginx/conf/nginx.conf
+COPY supervisord.conf /etc/supervisord.conf
 
 RUN chmod +x /usr/local/bin/xray
 
@@ -36,6 +40,4 @@ EXPOSE 8080
 HEALTHCHECK --interval=30s --timeout=5s --start-period=15s \
 CMD wget -qO- http://[::1]:8080/health || exit 1
 
-CMD /usr/local/bin/xray run -c /etc/xray.json & \
-    sleep 5 && \
-    exec /usr/local/openresty/bin/openresty -g 'daemon off;'
+CMD ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]
