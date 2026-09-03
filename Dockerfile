@@ -24,12 +24,6 @@ RUN apk add --no-cache \
     tzdata \
     wget
 
-RUN mkdir -p /usr/local/share/xray \
-    && wget -qO /usr/local/share/xray/geosite.dat "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat" \
-    || wget -qO /usr/local/share/xray/geosite.dat "https://ghproxy.com/https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat" \
-    && wget -qO /usr/local/share/xray/geoip.dat "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geoip.dat" \
-    || wget -qO /usr/local/share/xray/geoip.dat "https://ghproxy.com/https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geoip.dat"
-
 COPY --from=xray-bin /usr/local/bin/xray /usr/local/bin/xray
 
 COPY config.json /etc/xray.json
