@@ -3,15 +3,11 @@
     "loglevel": "warning"
   },
   "dns": {
-    "servers": ["1.1.1.1", "223.5.5.5", "8.8.8.8"],
-    "queryStrategy": "UseIP",
+    "servers": ["223.5.5.5", "223.6.6.6"],
+    "queryStrategy": "UseIPv4",
     "disableCache": false,
     "disableFallback": false,
-    "hosts": {
-      "www.cloudflare.com": "127.0.0.1",
-      "dns.alidns.com": "127.0.0.1",
-      "dns.google.com": "127.0.0.1"
-    }
+    "fallback": ["1.1.1.1", "8.8.8.8"]
   },
   "inbounds": [
     {
@@ -35,7 +31,7 @@
           "tcpcongestion": "bbr"
         }
       },
-      "sniffing": {"enabled": true, "destOverride": ["http", "tls"]}
+      "sniffing": {"enabled": true, "destOverride": ["http", "tls", "quic"]}
     },
     {
       "port": 10002,
@@ -59,7 +55,7 @@
           "tcpcongestion": "bbr"
         }
       },
-      "sniffing": {"enabled": true, "destOverride": ["http", "tls"]}
+      "sniffing": {"enabled": true, "destOverride": ["http", "tls", "quic"]}
     },
     {
       "port": 10003,
@@ -82,7 +78,7 @@
           "tcpcongestion": "bbr"
         }
       },
-      "sniffing": {"enabled": true, "destOverride": ["http", "tls"]}
+      "sniffing": {"enabled": true, "destOverride": ["http", "tls", "quic"]}
     },
     {
       "port": 10004,
@@ -105,7 +101,7 @@
           "tcpcongestion": "bbr"
         }
       },
-      "sniffing": {"enabled": true, "destOverride": ["http", "tls"]}
+      "sniffing": {"enabled": true, "destOverride": ["http", "tls", "quic"]}
     },
     {
       "port": 11001,
@@ -126,7 +122,7 @@
           "tcpcongestion": "bbr"
         }
       },
-      "sniffing": {"enabled": true, "destOverride": ["http", "tls", "fakedns"]}
+      "sniffing": {"enabled": true, "destOverride": ["http", "tls", "fakedns", "quic"]}
     },
     {
       "port": 11002,
@@ -150,7 +146,7 @@
           "tcpcongestion": "bbr"
         }
       },
-      "sniffing": {"enabled": true, "destOverride": ["http", "tls"]}
+      "sniffing": {"enabled": true, "destOverride": ["http", "tls", "quic"]}
     },
     {
       "port": 11003,
@@ -173,7 +169,7 @@
           "tcpcongestion": "bbr"
         }
       },
-      "sniffing": {"enabled": true, "destOverride": ["http", "tls"]}
+      "sniffing": {"enabled": true, "destOverride": ["http", "tls", "quic"]}
     },
     {
       "port": 11004,
@@ -196,7 +192,7 @@
           "tcpcongestion": "bbr"
         }
       },
-      "sniffing": {"enabled": true, "destOverride": ["http", "tls"]}
+      "sniffing": {"enabled": true, "destOverride": ["http", "tls", "quic"]}
     },
     {
       "port": 10010,
@@ -217,7 +213,7 @@
           "tcpcongestion": "bbr"
         }
       },
-      "sniffing": {"enabled": true, "destOverride": ["http", "tls"]}
+      "sniffing": {"enabled": true, "destOverride": ["http", "tls", "quic"]}
     },
     {
       "port": 10009,
@@ -236,10 +232,12 @@
           "tcpNoDelay": true,
           "tcpKeepAliveInterval": 15,
           "tcpKeepAliveIdle": 30,
-          "tcpKeepAliveCount": 3
+          "tcpKeepAliveCount": 3,
+          "tcpQuickAck": true,
+          "tcpcongestion": "bbr"
         }
       },
-      "sniffing": {"enabled": true, "destOverride": ["http", "tls"]}
+      "sniffing": {"enabled": true, "destOverride": ["http", "tls", "quic"]}
     },
     {
       "port": 10012,
@@ -262,7 +260,7 @@
           "tcpcongestion": "bbr"
         }
       },
-      "sniffing": {"enabled": true, "destOverride": ["http", "tls"]}
+      "sniffing": {"enabled": true, "destOverride": ["http", "tls", "quic"]}
     },
     {
       "port": 10011,
@@ -285,7 +283,7 @@
           "tcpcongestion": "bbr"
         }
       },
-      "sniffing": {"enabled": true, "destOverride": ["http", "tls"]}
+      "sniffing": {"enabled": true, "destOverride": ["http", "tls", "quic"]}
     }
   ],
   "outbounds": [
