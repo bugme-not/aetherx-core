@@ -118,38 +118,89 @@
     {
       "port": 12001, "listen": "::", "protocol": "trojan", "tag": "trojan-grpc",
       "settings": {"clients": [{"password": "Cxlvin777"}]},
-      "streamSettings": {"network": "grpc", "grpcSettings": {"serviceName": "cxlvintr-grpc"}, "sockopt": {"tcpFastOpen": true, "tcpNoDelay": true, "tcpKeepAliveInterval": 15}},
+      "streamSettings": {
+        "network": "grpc",
+        "grpcSettings": {"serviceName": "cxlvintr-grpc"},
+        "sockopt": {"tcpFastOpen": true, "tcpNoDelay": true, "tcpKeepAliveInterval": 15}
+      },
       "sniffing": {"enabled": true, "destOverride": ["http", "tls"]}
     },
     {
       "port": 12002, "listen": "::", "protocol": "vmess", "tag": "vmess-grpc",
       "settings": {"clients": [{"id": "cxlvin777", "alterId": 0}]},
-      "streamSettings": {"network": "grpc", "grpcSettings": {"serviceName": "cxlvinvm-grpc"}, "sockopt": {"tcpFastOpen": true, "tcpNoDelay": true, "tcpKeepAliveInterval": 15}},
+      "streamSettings": {
+        "network": "grpc",
+        "grpcSettings": {"serviceName": "cxlvinvm-grpc"},
+        "sockopt": {"tcpFastOpen": true, "tcpNoDelay": true, "tcpKeepAliveInterval": 15}
+      },
       "sniffing": {"enabled": true, "destOverride": ["http", "tls"]}
     },
     {
       "port": 12003, "listen": "::", "protocol": "vless", "tag": "vless-grpc",
       "settings": {"clients": [{"id": "cxlvin777"}], "decryption": "none"},
-      "streamSettings": {"network": "grpc", "grpcSettings": {"serviceName": "cxlvinvl-grpc"}, "sockopt": {"tcpFastOpen": true, "tcpNoDelay": true, "tcpKeepAliveInterval": 15}},
+      "streamSettings": {
+        "network": "grpc",
+        "grpcSettings": {"serviceName": "cxlvinvl-grpc"},
+        "sockopt": {"tcpFastOpen": true, "tcpNoDelay": true, "tcpKeepAliveInterval": 15}
+      },
       "sniffing": {"enabled": true, "destOverride": ["http", "tls"]}
     },
     {
       "port": 12004, "listen": "::", "protocol": "shadowsocks", "tag": "ss-grpc",
       "settings": {"clients": [{"password": "Cxlvin777", "method": "chacha20-ietf-poly1305"}]},
-      "streamSettings": {"network": "grpc", "grpcSettings": {"serviceName": "cxlvinss-grpc"}, "sockopt": {"tcpFastOpen": true, "tcpNoDelay": true, "tcpKeepAliveInterval": 15}}
+      "streamSettings": {
+        "network": "grpc",
+        "grpcSettings": {"serviceName": "cxlvinss-grpc"},
+        "sockopt": {"tcpFastOpen": true, "tcpNoDelay": true, "tcpKeepAliveInterval": 15}
+      }
     }
   ],
   "outbounds": [
     {
-      "protocol": "freedom", "tag": "direct",
+      "protocol": "freedom",
+      "tag": "direct",
       "settings": {"domainStrategy": "AsIs"},
-      "streamSettings": {"sockopt": {"tcpFastOpen": true, "tcpNoDelay": true, "tcpKeepAliveInterval": 15, "tcpKeepAliveIdle": 30, "tcpKeepAliveCount": 3, "tcpQuickAck": true, "tcpcongestion": "bbr"}}
+      "streamSettings": {
+        "sockopt": {
+          "tcpFastOpen": true,
+          "tcpNoDelay": true,
+          "tcpKeepAliveInterval": 15,
+          "tcpKeepAliveIdle": 30,
+          "tcpKeepAliveCount": 3,
+          "tcpQuickAck": true,
+          "tcpcongestion": "bbr"
+        }
+      }
     },
-    {"protocol": "blackhole", "tag": "block"}
+    {
+      "protocol": "blackhole",
+      "tag": "block"
+    }
   ],
   "routing": {
     "domainStrategy": "AsIs",
-    "rules": [{"type": "field", "inboundTag": ["trojan-ws","vless-ws","shadowsocks-ws","vmess-ws","trojan-hu","vless-hu","shadowsocks-hu","vmess-hu","trojan-xh","vless-xh","shadowsocks-xh","vmess-xh","trojan-grpc","vmess-grpc","vless-grpc","ss-grpc"], "outboundTag": "direct"}]
+    "rules": [
+      {
+        "type": "field",
+        "inboundTag": [
+          "trojan-ws",
+          "vless-ws",
+          "shadowsocks-ws",
+          "vmess-ws",
+          "trojan-hu",
+          "vless-hu",
+          "shadowsocks-hu",
+          "vmess-hu",
+          "trojan-xh",
+          "vless-xh",
+          "shadowsocks-xh",
+          "vmess-xh",
+          "trojan-grpc",
+          "vmess-grpc",
+          "vless-grpc",
+          "ss-grpc"
+        ],
+        "outboundTag": "direct"
       }
     ]
   }
