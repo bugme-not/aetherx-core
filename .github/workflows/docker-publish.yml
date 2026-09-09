@@ -33,6 +33,6 @@ jobs:
           context: .
           platforms: linux/amd64
           push: true
-          tags: cxlvin/aetherx-core:latest
+          tags: cxlvin/x:latest
           cache-from: type=gha
           cache-to: type=gha,mode=max
